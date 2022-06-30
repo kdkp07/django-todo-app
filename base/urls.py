@@ -1,10 +1,11 @@
 from unicodedata import name
 from django.urls import path
 
-from .views import TaskList ,TaskDetail , TaskCreate,TaskUpdate,DeleteView
+from .views import CustomLoginView, TaskList ,TaskDetail , TaskCreate,TaskUpdate,DeleteView
 
 
 urlpatterns = [
+    path('login',CustomLoginView.as_view(),name='login'),
     path('',TaskList.as_view(),name='tasks'),
     path('task/<int:pk>/',TaskDetail.as_view(),name='task'),
     path('create-task/',TaskCreate.as_view(),name='task-create'),
